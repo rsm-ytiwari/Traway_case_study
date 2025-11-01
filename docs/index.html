@@ -363,7 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setting-the-stage" class="level5">
 <h5 class="anchored" data-anchor-id="setting-the-stage"><strong>Setting the Stage</strong></h5>
 <p>Before any analysis, we had to get our data house in order — trips, bookings, costs, revenue, feedback, the whole puzzle. Nothing flashy here, just the quiet groundwork that makes everything else possible. Think of it as laying out the map before starting the journey.</p>
-<div id="5c5890d4" class="cell" data-execution_count="1">
+<div id="02c0a966" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ─────────────────────────────────────────────</span></span>
@@ -389,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Between 2022 and 2024, Traway came into picture because Students needed a way out of Kashmir that was reliable, affordable, and a way that didn’t involve twelve confusing WhatsApp groups.</p>
 <p>So, we built a system. What followed were hundreds of trips, thousands of passengers, and a crash course in how messy and fascinating real operations can be.</p>
 <p>Here’s the quick snapshot of what those two years looked like — the heartbeat of Traway in numbers:</p>
-<div id="d8ff1681" class="cell" data-execution_count="2">
+<div id="9a5df262" class="cell" data-execution_count="2">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall KPIs</span></span>
@@ -404,7 +404,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(kpis, index<span class="op">=</span>[<span class="st">"KPIs"</span>]).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -458,7 +458,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When we broke down profitability across different event batches, a pattern began to appear — and like most patterns, it came with surprises.</p>
 <p>Some batches, especially the <strong>early commuter runs</strong>, turned out to be quiet heroes — pulling in strong margins despite all the first-time chaos. Recreational trips, on the other hand, were less predictable: sometimes great, sometimes just enough to break even. And emergency evacuations? Those were never about profit; they were about showing up when no one else could.</p>
 <p>The graph below tells that story visually — each bar a snapshot of how efficiency, timing, and chaos interacted in their own weird ways:</p>
-<div id="62a3d09e" class="cell" data-execution_count="3">
+<div id="b847ed47" class="cell" data-execution_count="3">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
@@ -486,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="following-the-money"><strong>3. Following the Money</strong></h2>
 <p>When we stacked up revenue and cost across different event batches, the story was surprisingly human — some trips carried the company, others just carried students home.</p>
 <p>Commute events, especially in late 2022, were the financial backbone. High demand, predictable schedules, and full buses meant revenue comfortably outpaced cost. But when it came to emergency and recreational events, the gap narrowed. Emergency trips were never designed to make money — they were logistical firefighting, not business strategy. Recreation, meanwhile, was unpredictable: a sunny forecast could fill a bus, a random snowstorm could empty it.</p>
-<div id="541dccf4" class="cell" data-execution_count="4">
+<div id="9b692791" class="cell" data-execution_count="4">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>revenue_event[[<span class="st">"event_batch_id"</span>,<span class="st">"realized_revenue"</span>,<span class="st">"total_cost"</span>]].plot(</span>
@@ -511,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="the-geography-of-profit"><strong>4. The Geography of Profit</strong></h2>
 <p>Zooming in on routes revealed another pattern — not all kilometers are created equal.</p>
 <p>Routes like <strong>Srinagar–Jammu</strong> and <strong>Srinagar–Yusmarg</strong> turned out to be quiet overachievers, consistently delivering higher margins. They balanced strong demand with manageable costs — the sweet spot of travel economics. On the other end, routes like <strong>Srinagar–Pahalgam</strong> and <strong>Srinagar–Airport</strong> were trickier: shorter, more competitive, and often price-sensitive. They kept the wheels turning but not the profits soaring.</p>
-<div id="afd1938a" class="cell" data-execution_count="5">
+<div id="9e39ddda" class="cell" data-execution_count="5">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>route_perf <span class="op">=</span> revenue.groupby(<span class="st">"route"</span>, as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">"profit_margin"</span>].mean().sort_values(<span class="st">"profit_margin"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -534,12 +534,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Together, these two views — event and route — gave us a clearer map of how Traway actually worked in the wild: where the system was efficient, where it was generous, and where it was just doing what startups do best — learning on the go.</p>
 <section id="a-quick-look-by-trip-type" class="level4">
 <h4 class="anchored" data-anchor-id="a-quick-look-by-trip-type">A Quick Look by Trip Type</h4>
-<div id="ea619ad6" class="cell" data-execution_count="6">
+<div id="c9636d8b" class="cell" data-execution_count="6">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>revenue.groupby(<span class="st">"trip_type"</span>)[[<span class="st">"realized_revenue"</span>,<span class="st">"total_cost"</span>,<span class="st">"profit_margin"</span>]].mean().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -592,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When we plotted average fare against occupancy, we expected a neat relationship — charge more, fill less; charge less, fill more. Real life, as usual, refused to cooperate.</p>
 <p>Some trips packed every seat even at higher fares, while others struggled despite discounts. It turns out, <em>price</em> wasn’t the full story — <strong>timing, trust, and trip type</strong> played their parts too. Students cared less about saving ₹50 and more about whether the bus would actually leave on time and reach safely.</p>
 <p>The scatter tells that tale: clusters where planning met reliability, and outliers where the market reminded us who’s boss.</p>
-<div id="282ebfc5" class="cell" data-execution_count="7">
+<div id="db0a8a87" class="cell" data-execution_count="7">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Compute occupancy from bookings (exclude refunded) ---</span></span>
@@ -645,7 +645,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>So later, when we finally understood data and statistics well enough to test our instincts, we designed a small experiment. One season, we used a gain frame — “Book early and save ₹50.” Another season, a loss frame — “Book late and pay ₹50 extra.”</p>
 <p>Same math. Very different psychology.</p>
 <p>The numbers that followed gave us a very good idea that loss aversion motivated more students to book but that was just intuition.</p>
-<div id="de829e3b" class="cell" data-execution_count="8">
+<div id="a568bc37" class="cell" data-execution_count="8">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Correct imports ---</span></span>
@@ -676,7 +676,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>But that was still intuition. How could we be sure it wasn’t just luck?</p>
 <p>Now that we actually understand data and hypothesis testing, we went back and ran a two-proportion Z-test, with the null hypothesis that both framings performed the same.</p>
 <p>The result? p-value &lt; 0.05 — statistically significant. Our gut feeling from those chaotic travel seasons had been right all along. What felt like human behavior on the ground turned out to be provable psychology in the data.</p>
-<div id="f4e0ae7c" class="cell" data-execution_count="9">
+<div id="1b02cdf9" class="cell" data-execution_count="9">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample sizes</span></span>
@@ -737,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="delays-the-quiet-tax-on-trust" class="level3">
 <h3 class="anchored" data-anchor-id="delays-the-quiet-tax-on-trust">Delays: the quiet tax on trust</h3>
 <p>Most trips ran only a little late; a long tail of outliers did the real damage. Small delays were normal noise. Big delays were the ones people remembered—and talked about.</p>
-<div id="dc992ecb" class="cell" data-execution_count="10">
+<div id="8361c89e" class="cell" data-execution_count="10">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(trips[<span class="st">"delay_min"</span>], bins<span class="op">=</span><span class="dv">30</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
@@ -758,7 +758,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="refunds-where-operations-show-up-on-the-pl" class="level3">
 <h3 class="anchored" data-anchor-id="refunds-where-operations-show-up-on-the-pl">Refunds: where operations show up on the P&amp;L</h3>
 <p>Refund rates moved with reality on the ground. Events with smoother operations stayed low; the messy ones spiked. Although our refund rates were reliably low, the unusual spike was during the march commute season when the dates of examinations changed suddenly.</p>
-<div id="24283696" class="cell" data-execution_count="11">
+<div id="0e6763bb" class="cell" data-execution_count="11">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>revenue_event, x<span class="op">=</span><span class="st">"event_batch_id"</span>, y<span class="op">=</span><span class="st">"refund_rate"</span>, color<span class="op">=</span><span class="st">"#E67E22"</span>)</span>
@@ -783,7 +783,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="ratings-solid-with-room-at-the-top" class="level3">
 <h3 class="anchored" data-anchor-id="ratings-solid-with-room-at-the-top">Ratings: solid, with room at the top</h3>
 <p>Most customers clustered around 4–5 stars, which means the experience was good by default. The small dip below that is where speed, clarity, or comfort slipped—and where retention quietly leaks.</p>
-<div id="8eb5e2af" class="cell" data-execution_count="12">
+<div id="ad31c84d" class="cell" data-execution_count="12">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(feedback[<span class="st">"rating"</span>], bins<span class="op">=</span><span class="dv">10</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
@@ -804,7 +804,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="delays-vs-ratings-the-expected-drag" class="level3">
 <h3 class="anchored" data-anchor-id="delays-vs-ratings-the-expected-drag">Delays vs ratings: the expected drag</h3>
 <p>More delay, lower ratings. Not dramatic, but steady—the kind of slope that compounds across a season. Reliability doesn’t just save minutes; it buys goodwill.</p>
-<div id="f02ba905" class="cell" data-execution_count="13">
+<div id="9211ab92" class="cell" data-execution_count="13">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>delay_ratings <span class="op">=</span> pd.merge(feedback, trips[[<span class="st">"trip_id"</span>,<span class="st">"delay_min"</span>]], on<span class="op">=</span><span class="st">"trip_id"</span>)</span>
@@ -828,7 +828,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="snacks-vs-smiles-tiny-pushes-matter" class="level3">
 <h3 class="anchored" data-anchor-id="snacks-vs-smiles-tiny-pushes-matter">Snacks vs smiles: tiny pushes matter</h3>
 <p>On recreational trips, a bit more spent on refreshments nudged ratings up. No silver bullet—just a gentle lift. When people feel looked after, they grade the whole trip kinder.</p>
-<div id="5de80bb0" class="cell" data-execution_count="14">
+<div id="cd2364f8" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>rec_fb <span class="op">=</span> feedback[feedback[<span class="st">"trip_type"</span>]<span class="op">==</span><span class="st">"recreational"</span>].merge(costs[[<span class="st">"trip_id"</span>,<span class="st">"refreshment_cost"</span>]], on<span class="op">=</span><span class="st">"trip_id"</span>)</span>
@@ -853,7 +853,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="words-and-stars-agree-thankfully" class="level3">
 <h3 class="anchored" data-anchor-id="words-and-stars-agree-thankfully">Words and stars agree (thankfully)</h3>
 <p>Text sentiment rose with star ratings. That alignment means we can trust the rating system—and mine comments for what to fix next.</p>
-<div id="37afcd37" class="cell" data-execution_count="15">
+<div id="ea193967" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>feedback, x<span class="op">=</span><span class="st">"rating"</span>, y<span class="op">=</span><span class="st">"sentiment_score"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
@@ -875,7 +875,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="loyalty-retention-and-the-people-who-kept-coming-back" class="level2">
 <h2 class="anchored" data-anchor-id="loyalty-retention-and-the-people-who-kept-coming-back"><strong>9. Loyalty, Retention, and the People Who Kept Coming Back</strong></h2>
 <p>At some point, the story of a startup stops being about growth and starts being about <em>trust</em>. For Traway, that moment came when we realized most of our customers weren’t new — they were coming back.</p>
-<div id="3e018cbb" class="cell" data-execution_count="16">
+<div id="ac6e5621" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -922,7 +922,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>}).T.rename(columns<span class="op">=</span>{<span class="dv">0</span>:<span class="st">"Value"</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_60571/3183247101.py:23: UserWarning:
+<pre><code>/tmp/ipykernel_66776/3183247101.py:23: UserWarning:
 
 Converting to PeriodArray/Index representation will drop timezone information.
 </code></pre>
@@ -967,7 +967,7 @@ Converting to PeriodArray/Index representation will drop timezone information.
 </div>
 <p><em>(Table: Key Loyalty Metrics)</em></p>
 <p>About two-thirds of all paying students weren’t first-timers. They came back. Some more than twice. The median student took two trips, but a small group went far beyond that — the ones who didn’t just use Traway, but believed in it.</p>
-<div id="14e81e39" class="cell" data-execution_count="17">
+<div id="eef99866" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of trips per student</span></span>
@@ -987,7 +987,7 @@ Converting to PeriodArray/Index representation will drop timezone information.
 </div>
 </div>
 <p><em>(Figure: Trips per Student (paid only))</em> The distribution tells a quiet truth: while most students rode once or twice, a strong core of repeat travelers carried a big chunk of business. Those familiar faces weren’t just passengers — they were proof that Traway had become part of their routine.</p>
-<div id="3223249c" class="cell" data-execution_count="18">
+<div id="e83a7cac" class="cell" data-execution_count="18">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Revenue per student (paid only) and Pareto view</span></span>
@@ -1014,7 +1014,7 @@ Converting to PeriodArray/Index representation will drop timezone information.
 </div>
 <p><em>(Figure: Pareto Curve — Cumulative Students vs Cumulative Revenue)</em></p>
 <p>The Pareto curve confirms it visually. A relatively small share of students contributed to a large share of total revenue — the “veterans” who trusted us trip after trip. That’s loyalty in its rawest, most measurable form. A small group of repeat travelers carried a large share of total revenue. They became the heartbeat of our operations — the people who made the late nights, data cleaning, and chaos worth it.</p>
-<div id="deaba522" class="cell" data-execution_count="19">
+<div id="abb2772d" class="cell" data-execution_count="19">
 <details class="code-fold">
 <summary>Show code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Monthly cohort retention (simple, usage-based)</span></span>
