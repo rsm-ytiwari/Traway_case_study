@@ -8,7 +8,7 @@ Back in 2022, three students at **NIT Srinagar** (me included) were just trying 
 Flights were too expensive, cabs were chaotic, and the highway out of Kashmir felt like an obstacle course with cliffs on both sides.
 So, we did what any group of mildly desperate, overly confident students would do — we built our own system.
 
----
+
 
 ## **The Accidental Startup**
 
@@ -16,7 +16,7 @@ It started as a WhatsApp group and a Google Form.
 Then came late-night spreadsheets, phone calls with bus operators, and our first 50 students heading home safely.
 Next thing we knew, Traway was a **registered travel company** with a **React-Django** platform, QR-coded tickets, and over **3,000 passengers** moved across **7,000+ trips** — all bootstrapped and run by a team of students who were also cramming for finals.
 
----
+
 
 ## **The Data Phase (a.k.a. when we learned what a “KPI” was)**
 
@@ -31,7 +31,7 @@ That’s when we discovered that:
 
 Somewhere between the code and the chaos, we became analysts, not just founders.
 
----
+
 
 ## **What We Learned (the hard way, mostly)**
 
@@ -39,7 +39,7 @@ Somewhere between the code and the chaos, we became analysts, not just founders.
 * **Measure everything.** Feelings are great, but data doesn’t lie.
 * **Trust compounds.** Every on-time bus was a marketing campaign that cost ₹0.
 
----
+
 
 ## **What Happened After**
 
@@ -48,7 +48,7 @@ So we wound it down gracefully and used everything we learned to start **The Lou
 
 Traway taught us how to run operations in chaos, think in data, and make real things happen without waiting for permission.
 
----
+
 
 ### **Tech stack**
 
@@ -58,14 +58,12 @@ React · Django · Python · Pandas · Quarto · Matplotlib · Seaborn
 
 2022 – 2024 · NIT Srinagar, India
 
---
+
 
 > *“Bias toward action — but validate every step.”*
 > That’s what Traway was: our first real-world lab in turning messy problems into working systems.
 
 ---
-
-
 ### 👋 Author
 
 **Yash Tiwari**
@@ -74,7 +72,6 @@ React · Django · Python · Pandas · Quarto · Matplotlib · Seaborn
 
 📧 [yashtiwari.ty@gmail.com](mailto:yashtiwari.ty@gmail.com)
 🌐 [LinkedIn](https://www.linkedin.com/in/yash-tiwari-here/) • [Portfolio](https://leaf-allspice-531.notion.site/Hey-there-I-am-Yash-28a9c4819e1680a48f15c39ad54bd9d6?source=copy_link)
-
 ---
 
 > I tell stories with data — the kind that turn experiments into insights and ideas into action.
