@@ -1,0 +1,1812 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Traway</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2fef5ea3f8957b3e4ecc936fc74692ca.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d769fc6b16a546311565cb8fac97b1a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7ae74688121dd779373b2ac62aec675a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-d769fc6b16a546311565cb8fac97b1a7.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./images/logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Traway</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools tools-end">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-big-picture" id="toc-the-big-picture" class="nav-link active" data-scroll-target="#the-big-picture"><strong>1. The Big Picture</strong></a></li>
+  <li><a href="#how-each-event-performed" id="toc-how-each-event-performed" class="nav-link" data-scroll-target="#how-each-event-performed"><strong>2. How Each Event Performed</strong></a></li>
+  <li><a href="#following-the-money" id="toc-following-the-money" class="nav-link" data-scroll-target="#following-the-money"><strong>3. Following the Money</strong></a></li>
+  <li><a href="#the-geography-of-profit" id="toc-the-geography-of-profit" class="nav-link" data-scroll-target="#the-geography-of-profit"><strong>4. The Geography of Profit</strong></a></li>
+  <li><a href="#pricing-and-the-mystery-of-empty-seats" id="toc-pricing-and-the-mystery-of-empty-seats" class="nav-link" data-scroll-target="#pricing-and-the-mystery-of-empty-seats"><strong>5. Pricing and the Mystery of Empty Seats</strong></a></li>
+  <li><a href="#the-psychology-of-booking-early" id="toc-the-psychology-of-booking-early" class="nav-link" data-scroll-target="#the-psychology-of-booking-early"><strong>6. The Psychology of Booking Early</strong></a></li>
+  <li><a href="#reliability-and-refunds" id="toc-reliability-and-refunds" class="nav-link" data-scroll-target="#reliability-and-refunds"><strong>7. Reliability and Refunds</strong></a>
+  <ul class="collapse">
+  <li><a href="#delays-the-quiet-tax-on-trust" id="toc-delays-the-quiet-tax-on-trust" class="nav-link" data-scroll-target="#delays-the-quiet-tax-on-trust">Delays: the quiet tax on trust</a></li>
+  <li><a href="#refunds-where-operations-show-up-on-the-pl" id="toc-refunds-where-operations-show-up-on-the-pl" class="nav-link" data-scroll-target="#refunds-where-operations-show-up-on-the-pl">Refunds: where operations show up on the P&amp;L</a></li>
+  </ul></li>
+  <li><a href="#service-quality-and-satisfaction" id="toc-service-quality-and-satisfaction" class="nav-link" data-scroll-target="#service-quality-and-satisfaction"><strong>8. Service Quality and Satisfaction</strong></a>
+  <ul class="collapse">
+  <li><a href="#ratings-solid-with-room-at-the-top" id="toc-ratings-solid-with-room-at-the-top" class="nav-link" data-scroll-target="#ratings-solid-with-room-at-the-top">Ratings: solid, with room at the top</a></li>
+  <li><a href="#delays-vs-ratings-the-expected-drag" id="toc-delays-vs-ratings-the-expected-drag" class="nav-link" data-scroll-target="#delays-vs-ratings-the-expected-drag">Delays vs ratings: the expected drag</a></li>
+  <li><a href="#snacks-vs-smiles-tiny-pushes-matter" id="toc-snacks-vs-smiles-tiny-pushes-matter" class="nav-link" data-scroll-target="#snacks-vs-smiles-tiny-pushes-matter">Snacks vs smiles: tiny pushes matter</a></li>
+  <li><a href="#words-and-stars-agree-thankfully" id="toc-words-and-stars-agree-thankfully" class="nav-link" data-scroll-target="#words-and-stars-agree-thankfully">Words and stars agree (thankfully)</a></li>
+  </ul></li>
+  <li><a href="#loyalty-retention-and-the-people-who-kept-coming-back" id="toc-loyalty-retention-and-the-people-who-kept-coming-back" class="nav-link" data-scroll-target="#loyalty-retention-and-the-people-who-kept-coming-back"><strong>9. Loyalty, Retention, and the People Who Kept Coming Back</strong></a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Background</strong></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>We’re a small group of students from <strong>NIT Srinagar</strong> who accidentally stumbled into the world of startups while just trying to solve our own everyday problems. What began as a late-night idea to make life a little easier for students in Kashmir slowly turned into <strong>Traway.live</strong> — a bootstrapped travel platform that ended up moving thousands of people across one of India’s toughest regions to operate in.</p>
+<p>This report isn’t just a bunch of charts and numbers. It’s our attempt to step back and understand <em>why</em> Traway worked the way it did — what patterns shaped our growth, what mistakes taught us the most, and what data quietly told us before we even realized it.</p>
+<p>Think of it as a post-game analysis of a startup that started in a college dorm, fought weather, bureaucracy, and bad roads, and somehow managed to build something real — all while we were still figuring out adulthood.</p>
+<section id="setting-the-stage" class="level5">
+<h5 class="anchored" data-anchor-id="setting-the-stage"><strong>Setting the Stage</strong></h5>
+<p>Before any analysis, we had to get our data house in order — trips, bookings, costs, revenue, feedback, the whole puzzle. Nothing flashy here, just the quiet groundwork that makes everything else possible. Think of it as laying out the map before starting the journey.</p>
+<div id="5c5890d4" class="cell" data-execution_count="1">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ─────────────────────────────────────────────</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data &amp; packages</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># ─────────────────────────────────────────────</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, numpy <span class="im">as</span> np, matplotlib.pyplot <span class="im">as</span> plt, seaborn <span class="im">as</span> sns</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>trips <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/trips.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>bookings <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/bookings.csv"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>costs <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/costs.csv"</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>revenue <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/revenue.csv"</span>)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>revenue_event <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/revenue_by_event.csv"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>feedback <span class="op">=</span> pd.read_csv(<span class="st">"../data/processed/feedback.csv"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Trips: </span><span class="sc">{</span><span class="bu">len</span>(trips)<span class="sc">}</span><span class="ss">, Bookings: </span><span class="sc">{</span><span class="bu">len</span>(bookings)<span class="sc">}</span><span class="ss">, Costs: </span><span class="sc">{</span><span class="bu">len</span>(costs)<span class="sc">}</span><span class="ss">, Revenue: </span><span class="sc">{</span><span class="bu">len</span>(revenue)<span class="sc">}</span><span class="ss">, Feedback: </span><span class="sc">{</span><span class="bu">len</span>(feedback)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Trips: 175, Bookings: 6985, Costs: 175, Revenue: 175, Feedback: 1579</code></pre>
+</div>
+</div>
+</section>
+<section id="the-big-picture" class="level2">
+<h2 class="anchored" data-anchor-id="the-big-picture"><strong>1. The Big Picture</strong></h2>
+<p>Between 2022 and 2024, Traway came into picture because Students needed a way out of Kashmir that was reliable, affordable, and a way that didn’t involve twelve confusing WhatsApp groups.</p>
+<p>So, we built a system. What followed were hundreds of trips, thousands of passengers, and a crash course in how messy and fascinating real operations can be.</p>
+<p>Here’s the quick snapshot of what those two years looked like — the heartbeat of Traway in numbers:</p>
+<div id="d8ff1681" class="cell" data-execution_count="2">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Overall KPIs</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>kpis <span class="op">=</span> {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total Trips"</span>: <span class="bu">len</span>(trips),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total Students (bookings)"</span>: bookings[<span class="st">"student_id"</span>].nunique(),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total Revenue (₹)"</span>: revenue[<span class="st">"realized_revenue"</span>].<span class="bu">sum</span>().<span class="bu">round</span>(),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total Cost (₹)"</span>: revenue[<span class="st">"total_cost"</span>].<span class="bu">sum</span>().<span class="bu">round</span>(),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total Profit (₹)"</span>: revenue[<span class="st">"profit"</span>].<span class="bu">sum</span>().<span class="bu">round</span>(),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Avg Profit Margin (%)"</span>: (revenue[<span class="st">"profit"</span>].<span class="bu">sum</span>() <span class="op">/</span> revenue[<span class="st">"realized_revenue"</span>].<span class="bu">sum</span>() <span class="op">*</span> <span class="dv">100</span>).<span class="bu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Avg Rating (★)"</span>: feedback[<span class="st">"rating"</span>].mean().<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(kpis, index<span class="op">=</span>[<span class="st">"KPIs"</span>]).T</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">KPIs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Total Trips</td>
+<td>175.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Total Students (bookings)</td>
+<td>3302.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Total Revenue (₹)</td>
+<td>2532919.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Total Cost (₹)</td>
+<td>2459736.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Total Profit (₹)</td>
+<td>636017.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Avg Profit Margin (%)</td>
+<td>25.11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Avg Rating (★)</td>
+<td>4.15</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Each of those numbers tells a story. The trips were the backbone, the bookings were the belief, and the profit was the quiet reward for getting both right (it will probably get less poetic now😅).</p>
+<p>It wasn’t smooth — no startup ever is — but by the end, we had something that actually worked: a data-backed, community-fueled travel system that proved small ideas can move big distances.</p>
+</section>
+<section id="how-each-event-performed" class="level2">
+<h2 class="anchored" data-anchor-id="how-each-event-performed"><strong>2. How Each Event Performed</strong></h2>
+<p>When we broke down profitability across different event batches, a pattern began to appear — and like most patterns, it came with surprises.</p>
+<p>Some batches, especially the <strong>early commuter runs</strong>, turned out to be quiet heroes — pulling in strong margins despite all the first-time chaos. Recreational trips, on the other hand, were less predictable: sometimes great, sometimes just enough to break even. And emergency evacuations? Those were never about profit; they were about showing up when no one else could.</p>
+<p>The graph below tells that story visually — each bar a snapshot of how efficiency, timing, and chaos interacted in their own weird ways:</p>
+<div id="62a3d09e" class="cell" data-execution_count="3">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>revenue_event, x<span class="op">=</span><span class="st">"event_batch_id"</span>, y<span class="op">=</span><span class="st">"profit_margin"</span>, hue<span class="op">=</span><span class="st">"event_batch_id"</span>, dodge<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Profit Margin by Event Batch"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Profit Margin (%)"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Event Batch"</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>plt.legend([],[],frameon<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-4-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="index_files/figure-html/cell-4-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Profit Margin by Event Batch)</em></p>
+<p>What stands out isn’t just which events made the most money — it’s how consistent the system became over time. From the trial-and-error beginnings to smoother later runs, Traway slowly learned what worked, what didn’t, and how to turn experience into efficiency.</p>
+<p>Perfect — these two blocks work great together. One shows <em>how events behaved financially</em>, the other <em>where</em> those results came from geographically. We’ll keep the tone analytical but human — like someone walking a reader through real outcomes, not just posting plots.</p>
+</section>
+<section id="following-the-money" class="level2">
+<h2 class="anchored" data-anchor-id="following-the-money"><strong>3. Following the Money</strong></h2>
+<p>When we stacked up revenue and cost across different event batches, the story was surprisingly human — some trips carried the company, others just carried students home.</p>
+<p>Commute events, especially in late 2022, were the financial backbone. High demand, predictable schedules, and full buses meant revenue comfortably outpaced cost. But when it came to emergency and recreational events, the gap narrowed. Emergency trips were never designed to make money — they were logistical firefighting, not business strategy. Recreation, meanwhile, was unpredictable: a sunny forecast could fill a bus, a random snowstorm could empty it.</p>
+<div id="541dccf4" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>revenue_event[[<span class="st">"event_batch_id"</span>,<span class="st">"realized_revenue"</span>,<span class="st">"total_cost"</span>]].plot(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"event_batch_id"</span>, kind<span class="op">=</span><span class="st">"bar"</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>), ylabel<span class="op">=</span><span class="st">"₹"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Revenue vs Cost by Event"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-5-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="index_files/figure-html/cell-5-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Revenue vs Cost by Event)</em></p>
+<p>This comparison made one thing clear — profitability wasn’t random. It followed intention. Every time we planned, optimized, and priced thoughtfully, the margins held. When we reacted, they thinned.</p>
+</section>
+<section id="the-geography-of-profit" class="level2">
+<h2 class="anchored" data-anchor-id="the-geography-of-profit"><strong>4. The Geography of Profit</strong></h2>
+<p>Zooming in on routes revealed another pattern — not all kilometers are created equal.</p>
+<p>Routes like <strong>Srinagar–Jammu</strong> and <strong>Srinagar–Yusmarg</strong> turned out to be quiet overachievers, consistently delivering higher margins. They balanced strong demand with manageable costs — the sweet spot of travel economics. On the other end, routes like <strong>Srinagar–Pahalgam</strong> and <strong>Srinagar–Airport</strong> were trickier: shorter, more competitive, and often price-sensitive. They kept the wheels turning but not the profits soaring.</p>
+<div id="afd1938a" class="cell" data-execution_count="5">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>route_perf <span class="op">=</span> revenue.groupby(<span class="st">"route"</span>, as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">"profit_margin"</span>].mean().sort_values(<span class="st">"profit_margin"</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>route_perf, y<span class="op">=</span><span class="st">"route"</span>, x<span class="op">=</span><span class="st">"profit_margin"</span>, palette<span class="op">=</span><span class="st">"crest"</span>, hue<span class="op">=</span><span class="st">"route"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Profit Margin by Route"</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Profit Margin (%)"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">""</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-6-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="index_files/figure-html/cell-6-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Average Profit Margin by Route)</em></p>
+<p>Together, these two views — event and route — gave us a clearer map of how Traway actually worked in the wild: where the system was efficient, where it was generous, and where it was just doing what startups do best — learning on the go.</p>
+<section id="a-quick-look-by-trip-type" class="level4">
+<h4 class="anchored" data-anchor-id="a-quick-look-by-trip-type">A Quick Look by Trip Type</h4>
+<div id="ea619ad6" class="cell" data-execution_count="6">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>revenue.groupby(<span class="st">"trip_type"</span>)[[<span class="st">"realized_revenue"</span>,<span class="st">"total_cost"</span>,<span class="st">"profit_margin"</span>]].mean().<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">realized_revenue</th>
+<th data-quarto-table-cell-role="th">total_cost</th>
+<th data-quarto-table-cell-role="th">profit_margin</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">trip_type</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">commute</td>
+<td>33387.79</td>
+<td>15063.96</td>
+<td>0.53</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">emergency</td>
+<td>0.00</td>
+<td>15382.16</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">recreational</td>
+<td>17895.33</td>
+<td>9567.77</td>
+<td>0.46</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>When we averaged things out by trip type, the numbers lined up with what our gut already knew. <strong>Commute trips</strong> were the steady earners — reliable schedules, full buses, and predictable margins around the halfway mark. <strong>Recreational trips</strong> did fine but danced more with luck than logic — good weather meant profit, bad timing meant empty seats. And <strong>emergency trips</strong>? Those were pure service. No revenue, no margins — just buses on the road when people needed them most.</p>
+<p>It’s the kind of data that quietly says what every founder learns the hard way: not every trip needs to be profitable to be worth running.</p>
+</section>
+</section>
+<section id="pricing-and-the-mystery-of-empty-seats" class="level2">
+<h2 class="anchored" data-anchor-id="pricing-and-the-mystery-of-empty-seats"><strong>5. Pricing and the Mystery of Empty Seats</strong></h2>
+<p>When we plotted average fare against occupancy, we expected a neat relationship — charge more, fill less; charge less, fill more. Real life, as usual, refused to cooperate.</p>
+<p>Some trips packed every seat even at higher fares, while others struggled despite discounts. It turns out, <em>price</em> wasn’t the full story — <strong>timing, trust, and trip type</strong> played their parts too. Students cared less about saving ₹50 and more about whether the bus would actually leave on time and reach safely.</p>
+<p>The scatter tells that tale: clusters where planning met reliability, and outliers where the market reminded us who’s boss.</p>
+<div id="282ebfc5" class="cell" data-execution_count="7">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Compute occupancy from bookings (exclude refunded) ---</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Seats actually used per trip_id</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>occupied <span class="op">=</span> (</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    bookings.loc[bookings[<span class="st">"payment_status"</span>].<span class="bu">str</span>.lower().ne(<span class="st">"refunded"</span>)]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"trip_id"</span>, as_index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    .agg(filled_seats<span class="op">=</span>(<span class="st">"booking_id"</span>, <span class="st">"count"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Join with trips to get total_seats and compute occupancy_rate</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>trip_occ <span class="op">=</span> trips[[<span class="st">"trip_id"</span>, <span class="st">"total_seats"</span>]].merge(occupied, on<span class="op">=</span><span class="st">"trip_id"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>trip_occ[<span class="st">"filled_seats"</span>] <span class="op">=</span> trip_occ[<span class="st">"filled_seats"</span>].fillna(<span class="dv">0</span>).astype(<span class="bu">int</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>trip_occ[<span class="st">"occupancy_rate"</span>] <span class="op">=</span> trip_occ[<span class="st">"filled_seats"</span>] <span class="op">/</span> trip_occ[<span class="st">"total_seats"</span>]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Average fare per trip (use only paid fares for AOV)</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>bookings_by_trip <span class="op">=</span> (</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    bookings.loc[bookings[<span class="st">"payment_status"</span>].<span class="bu">str</span>.lower().eq(<span class="st">"paid"</span>)]</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    .groupby(<span class="st">"trip_id"</span>, as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">"fare_paid"</span>].mean()</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    .rename(columns<span class="op">=</span>{<span class="st">"fare_paid"</span>: <span class="st">"avg_fare"</span>})</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge and plot</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>fare_occ <span class="op">=</span> pd.merge(bookings_by_trip, trip_occ, on<span class="op">=</span><span class="st">"trip_id"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>fare_occ, x<span class="op">=</span><span class="st">"occupancy_rate"</span>, y<span class="op">=</span><span class="st">"avg_fare"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Average Fare vs Occupancy Rate"</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Occupancy Rate"</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Average Fare (₹)"</span>)</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-8-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="index_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Average Fare vs Occupancy Rate)</em></p>
+<p>In short, pricing mattered — but <strong>predictability sold better than cheapness</strong>.</p>
+</section>
+<section id="the-psychology-of-booking-early" class="level2">
+<h2 class="anchored" data-anchor-id="the-psychology-of-booking-early"><strong>6. The Psychology of Booking Early</strong></h2>
+<p>We wanted to solve one of the most familiar problems in travel, empty seats! During Traway’s early days, we had a hunch. Whenever we warned students that fares might increase later, bookings seemed to skyrocket. When we offered discounts instead, the response was… lukewarm.</p>
+<p>We didn’t know it then, but we were bumping into something behavioral economists have written books about — loss aversion. People hate losing more than they love saving.</p>
+<p>So later, when we finally understood data and statistics well enough to test our instincts, we designed a small experiment. One season, we used a gain frame — “Book early and save ₹50.” Another season, a loss frame — “Book late and pay ₹50 extra.”</p>
+<p>Same math. Very different psychology.</p>
+<p>The numbers that followed gave us a very good idea that loss aversion motivated more students to book but that was just intuition.</p>
+<div id="de829e3b" class="cell" data-execution_count="8">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># --- Correct imports ---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsmodels.stats.proportion <span class="im">import</span> proportions_ztest</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute prebooking shares</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>exp <span class="op">=</span> bookings.groupby(<span class="st">"framing_type"</span>)[<span class="st">"prebooking_flag"</span>].mean().reset_index()</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>exp.columns <span class="op">=</span> [<span class="st">"framing_type"</span>,<span class="st">"prebook_rate"</span>]</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>exp, x<span class="op">=</span><span class="st">"framing_type"</span>, y<span class="op">=</span><span class="st">"prebook_rate"</span>, palette<span class="op">=</span><span class="st">"Set2"</span>, hue<span class="op">=</span><span class="st">"prebook_rate"</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Prebooking Participation by Framing Type"</span>)</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Prebooking Share"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-9-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="index_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Prebooking Participation by Framing Type)</em></p>
+<p>The chart shows what we’d always sensed — the loss frame clearly outperformed the gain frame. Students responded more when they thought they might lose something rather than earn it.</p>
+<p>But that was still intuition. How could we be sure it wasn’t just luck?</p>
+<p>Now that we actually understand data and hypothesis testing, we went back and ran a two-proportion Z-test, with the null hypothesis that both framings performed the same.</p>
+<p>The result? p-value &lt; 0.05 — statistically significant. Our gut feeling from those chaotic travel seasons had been right all along. What felt like human behavior on the ground turned out to be provable psychology in the data.</p>
+<div id="f4e0ae7c" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sample sizes</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>n_gain <span class="op">=</span> bookings.query(<span class="st">"framing_type == 'gain'"</span>).shape[<span class="dv">0</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>n_loss <span class="op">=</span> bookings.query(<span class="st">"framing_type == 'loss'"</span>).shape[<span class="dv">0</span>]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>p_gain <span class="op">=</span> exp.loc[exp[<span class="st">"framing_type"</span>]<span class="op">==</span><span class="st">"gain"</span>,<span class="st">"prebook_rate"</span>].values[<span class="dv">0</span>]</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>p_loss <span class="op">=</span> exp.loc[exp[<span class="st">"framing_type"</span>]<span class="op">==</span><span class="st">"loss"</span>,<span class="st">"prebook_rate"</span>].values[<span class="dv">0</span>]</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Two-proportion Z-test</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>count <span class="op">=</span> np.array([p_gain<span class="op">*</span>n_gain, p_loss<span class="op">*</span>n_loss])</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>nobs <span class="op">=</span> np.array([n_gain, n_loss])</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>z, p <span class="op">=</span> proportions_ztest(count, nobs, alternative<span class="op">=</span><span class="st">"smaller"</span>)  <span class="co"># smaller → gain&lt;loss</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>display(exp)</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Z-stat = </span><span class="sc">{</span>z<span class="sc">:.3f}</span><span class="ss">, p-value = </span><span class="sc">{</span>p<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">framing_type</th>
+<th data-quarto-table-cell-role="th">prebook_rate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>gain</td>
+<td>0.296020</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>loss</td>
+<td>0.499218</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>none</td>
+<td>0.292218</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Z-stat = -8.619, p-value = 0.0000</code></pre>
+</div>
+</div>
+<p><em>(Table: Prebooking Rate by Framing Type)</em> The table shows it clearly — when framed as a potential loss, students booked earlier almost twice as often. It’s the classic <em>loss aversion</em> principle at work: avoiding pain beats chasing reward.</p>
+</section>
+<section id="reliability-and-refunds" class="level2">
+<h2 class="anchored" data-anchor-id="reliability-and-refunds"><strong>7. Reliability and Refunds</strong></h2>
+<section id="delays-the-quiet-tax-on-trust" class="level3">
+<h3 class="anchored" data-anchor-id="delays-the-quiet-tax-on-trust">Delays: the quiet tax on trust</h3>
+<p>Most trips ran only a little late; a long tail of outliers did the real damage. Small delays were normal noise. Big delays were the ones people remembered—and talked about.</p>
+<div id="dc992ecb" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(trips[<span class="st">"delay_min"</span>], bins<span class="op">=</span><span class="dv">30</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Trip Delay Distribution"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Delay (minutes)"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-11-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="index_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Trip Delay Distribution)</em></p>
+</section>
+<section id="refunds-where-operations-show-up-on-the-pl" class="level3">
+<h3 class="anchored" data-anchor-id="refunds-where-operations-show-up-on-the-pl">Refunds: where operations show up on the P&amp;L</h3>
+<p>Refund rates moved with reality on the ground. Events with smoother operations stayed low; the messy ones spiked. Although our refund rates were reliably low, the unusual spike was during the march commute season when the dates of examinations changed suddenly.</p>
+<div id="24283696" class="cell" data-execution_count="11">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sns.barplot(data<span class="op">=</span>revenue_event, x<span class="op">=</span><span class="st">"event_batch_id"</span>, y<span class="op">=</span><span class="st">"refund_rate"</span>, color<span class="op">=</span><span class="st">"#E67E22"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Refund Rate by Event"</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-12-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="index_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Refund Rate by Event)</em></p>
+<hr>
+</section>
+</section>
+<section id="service-quality-and-satisfaction" class="level2">
+<h2 class="anchored" data-anchor-id="service-quality-and-satisfaction"><strong>8. Service Quality and Satisfaction</strong></h2>
+<section id="ratings-solid-with-room-at-the-top" class="level3">
+<h3 class="anchored" data-anchor-id="ratings-solid-with-room-at-the-top">Ratings: solid, with room at the top</h3>
+<p>Most customers clustered around 4–5 stars, which means the experience was good by default. The small dip below that is where speed, clarity, or comfort slipped—and where retention quietly leaks.</p>
+<div id="8eb5e2af" class="cell" data-execution_count="12">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>sns.histplot(feedback[<span class="st">"rating"</span>], bins<span class="op">=</span><span class="dv">10</span>, kde<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Distribution of Ratings (★)"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Rating (1–5)"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-13-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="index_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Distribution of Ratings (★))</em></p>
+</section>
+<section id="delays-vs-ratings-the-expected-drag" class="level3">
+<h3 class="anchored" data-anchor-id="delays-vs-ratings-the-expected-drag">Delays vs ratings: the expected drag</h3>
+<p>More delay, lower ratings. Not dramatic, but steady—the kind of slope that compounds across a season. Reliability doesn’t just save minutes; it buys goodwill.</p>
+<div id="f02ba905" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>delay_ratings <span class="op">=</span> pd.merge(feedback, trips[[<span class="st">"trip_id"</span>,<span class="st">"delay_min"</span>]], on<span class="op">=</span><span class="st">"trip_id"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>delay_ratings, x<span class="op">=</span><span class="st">"delay_min"</span>, y<span class="op">=</span><span class="st">"rating"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>delay_ratings, x<span class="op">=</span><span class="st">"delay_min"</span>, y<span class="op">=</span><span class="st">"rating"</span>, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">"red"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Delay vs Rating (expected negative correlation)"</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Delay (min)"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Rating (★)"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-14-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="index_files/figure-html/cell-14-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Delay vs Rating (expected negative correlation))</em></p>
+</section>
+<section id="snacks-vs-smiles-tiny-pushes-matter" class="level3">
+<h3 class="anchored" data-anchor-id="snacks-vs-smiles-tiny-pushes-matter">Snacks vs smiles: tiny pushes matter</h3>
+<p>On recreational trips, a bit more spent on refreshments nudged ratings up. No silver bullet—just a gentle lift. When people feel looked after, they grade the whole trip kinder.</p>
+<div id="5de80bb0" class="cell" data-execution_count="14">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>rec_fb <span class="op">=</span> feedback[feedback[<span class="st">"trip_type"</span>]<span class="op">==</span><span class="st">"recreational"</span>].merge(costs[[<span class="st">"trip_id"</span>,<span class="st">"refreshment_cost"</span>]], on<span class="op">=</span><span class="st">"trip_id"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>rec_fb[<span class="st">"per_student_refreshment"</span>] <span class="op">=</span> rec_fb[<span class="st">"refreshment_cost"</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>rec_fb, x<span class="op">=</span><span class="st">"per_student_refreshment"</span>, y<span class="op">=</span><span class="st">"rating"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>rec_fb, x<span class="op">=</span><span class="st">"per_student_refreshment"</span>, y<span class="op">=</span><span class="st">"rating"</span>, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">"green"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Refreshment Spend vs Rating (Recreational)"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Refreshment Spend (₹ per trip)"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Rating (★)"</span>)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-15-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="index_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Refreshment Spend vs Rating (Recreational))</em></p>
+</section>
+<section id="words-and-stars-agree-thankfully" class="level3">
+<h3 class="anchored" data-anchor-id="words-and-stars-agree-thankfully">Words and stars agree (thankfully)</h3>
+<p>Text sentiment rose with star ratings. That alignment means we can trust the rating system—and mine comments for what to fix next.</p>
+<div id="37afcd37" class="cell" data-execution_count="15">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>feedback, x<span class="op">=</span><span class="st">"rating"</span>, y<span class="op">=</span><span class="st">"sentiment_score"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Sentiment vs Rating (alignment check)"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-16-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="index_files/figure-html/cell-16-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Sentiment vs Rating (alignment check))</em></p>
+<p><strong>our takeaway:</strong> reliability prevents refunds, small gestures polish the experience, and both show up—predictably—in how people rate you.</p>
+</section>
+</section>
+<section id="loyalty-retention-and-the-people-who-kept-coming-back" class="level2">
+<h2 class="anchored" data-anchor-id="loyalty-retention-and-the-people-who-kept-coming-back"><strong>9. Loyalty, Retention, and the People Who Kept Coming Back</strong></h2>
+<p>At some point, the story of a startup stops being about growth and starts being about <em>trust</em>. For Traway, that moment came when we realized most of our customers weren’t new — they were coming back.</p>
+<div id="3e018cbb" class="cell" data-execution_count="16">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> operator <span class="im">import</span> attrgetter</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">"trip_count"</span> <span class="kw">in</span> bookings.columns:</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    student_trips <span class="op">=</span> bookings.groupby(<span class="st">"student_id"</span>)[<span class="st">"trip_id"</span>].nunique()</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    repeaters <span class="op">=</span> (student_trips <span class="op">&gt;</span> <span class="dv">1</span>).<span class="bu">sum</span>()</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    total <span class="op">=</span> student_trips.shape[<span class="dv">0</span>]</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Repeat travelers: </span><span class="sc">{</span>repeaters<span class="sc">}</span><span class="ss"> (</span><span class="sc">{</span>repeaters<span class="op">/</span>total<span class="op">*</span><span class="dv">100</span><span class="sc">:.1f}</span><span class="ss">%) of total"</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> bookings.copy()</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>b[<span class="st">"payment_status"</span>] <span class="op">=</span> b[<span class="st">"payment_status"</span>].<span class="bu">str</span>.lower().<span class="bu">str</span>.strip()</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Count only paid bookings for loyalty (cash basis)</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>b_paid <span class="op">=</span> b[b[<span class="st">"payment_status"</span>].eq(<span class="st">"paid"</span>)].copy()</span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure datetime</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>b_paid[<span class="st">"booking_datetime"</span>] <span class="op">=</span> pd.to_datetime(b_paid[<span class="st">"booking_datetime"</span>], errors<span class="op">=</span><span class="st">"coerce"</span>)</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>b_paid[<span class="st">"booking_month"</span>] <span class="op">=</span> b_paid[<span class="st">"booking_datetime"</span>].dt.to_period(<span class="st">"M"</span>).dt.to_timestamp()</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Trip count per student (paid only)</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>trip_count <span class="op">=</span> (</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    b_paid.groupby(<span class="st">"student_id"</span>)[<span class="st">"trip_id"</span>].nunique()</span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    .rename(<span class="st">"trip_count"</span>)</span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    .reset_index()</span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>trip_count_summary <span class="op">=</span> trip_count[<span class="st">"trip_count"</span>].describe()</span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>repeaters <span class="op">=</span> (trip_count[<span class="st">"trip_count"</span>] <span class="op">&gt;</span> <span class="dv">1</span>).<span class="bu">sum</span>()</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>unique_students <span class="op">=</span> trip_count.shape[<span class="dv">0</span>]</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>repeat_rate <span class="op">=</span> repeaters <span class="op">/</span> <span class="bu">max</span>(<span class="dv">1</span>, unique_students)</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>display(pd.DataFrame({</span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Unique paying students"</span>: [unique_students],</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeat travelers"</span>: [repeaters],</span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Repeat rate (%)"</span>: [<span class="bu">round</span>(<span class="dv">100</span><span class="op">*</span>repeat_rate, <span class="dv">1</span>)],</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Median trips per student"</span>: [<span class="bu">int</span>(trip_count[<span class="st">"trip_count"</span>].median())],</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"95th pct trips per student"</span>: [<span class="bu">int</span>(trip_count[<span class="st">"trip_count"</span>].quantile(<span class="fl">0.95</span>))]</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>}).T.rename(columns<span class="op">=</span>{<span class="dv">0</span>:<span class="st">"Value"</span>}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>/tmp/ipykernel_60571/3183247101.py:23: UserWarning:
+
+Converting to PeriodArray/Index representation will drop timezone information.
+</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Unique paying students</td>
+<td>3244.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Repeat travelers</td>
+<td>2183.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">Repeat rate (%)</td>
+<td>67.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">Median trips per student</td>
+<td>2.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">95th pct trips per student</td>
+<td>4.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><em>(Table: Key Loyalty Metrics)</em></p>
+<p>About two-thirds of all paying students weren’t first-timers. They came back. Some more than twice. The median student took two trips, but a small group went far beyond that — the ones who didn’t just use Traway, but believed in it.</p>
+<div id="14e81e39" class="cell" data-execution_count="17">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of trips per student</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>sns.histplot(trip_count[<span class="st">"trip_count"</span>], bins<span class="op">=</span>np.arange(<span class="dv">1</span>, trip_count[<span class="st">"trip_count"</span>].<span class="bu">max</span>()<span class="op">+</span><span class="dv">2</span>)<span class="op">-</span><span class="fl">0.5</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Trips per Student (paid only)"</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Distinct trips"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Students"</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-18-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="index_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Trips per Student (paid only))</em> The distribution tells a quiet truth: while most students rode once or twice, a strong core of repeat travelers carried a big chunk of business. Those familiar faces weren’t just passengers — they were proof that Traway had become part of their routine.</p>
+<div id="3223249c" class="cell" data-execution_count="18">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Revenue per student (paid only) and Pareto view</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>rev_per_student <span class="op">=</span> b_paid.groupby(<span class="st">"student_id"</span>)[<span class="st">"fare_paid"</span>].<span class="bu">sum</span>().rename(<span class="st">"revenue"</span>).reset_index()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>rev_per_student <span class="op">=</span> rev_per_student.sort_values(<span class="st">"revenue"</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>rev_per_student[<span class="st">"cum_share_students"</span>] <span class="op">=</span> (np.arange(<span class="bu">len</span>(rev_per_student))<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span><span class="bu">len</span>(rev_per_student)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>rev_per_student[<span class="st">"cum_share_revenue"</span>] <span class="op">=</span> rev_per_student[<span class="st">"revenue"</span>].cumsum()<span class="op">/</span>rev_per_student[<span class="st">"revenue"</span>].<span class="bu">sum</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>plt.plot(rev_per_student[<span class="st">"cum_share_students"</span>], rev_per_student[<span class="st">"cum_share_revenue"</span>], marker<span class="op">=</span><span class="st">"."</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Pareto Curve: Cumulative Students vs Cumulative Revenue"</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Cumulative share of students"</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Cumulative share of revenue"</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-19-output-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="index_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Pareto Curve — Cumulative Students vs Cumulative Revenue)</em></p>
+<p>The Pareto curve confirms it visually. A relatively small share of students contributed to a large share of total revenue — the “veterans” who trusted us trip after trip. That’s loyalty in its rawest, most measurable form. A small group of repeat travelers carried a large share of total revenue. They became the heartbeat of our operations — the people who made the late nights, data cleaning, and chaos worth it.</p>
+<div id="deaba522" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Show code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ── Monthly cohort retention (simple, usage-based)</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohort = first month the student purchased; Active = months the student purchased</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>first_month <span class="op">=</span> b_paid.groupby(<span class="st">"student_id"</span>)[<span class="st">"booking_month"</span>].<span class="bu">min</span>().rename(<span class="st">"cohort_month"</span>)</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>activity <span class="op">=</span> b_paid.groupby([<span class="st">"student_id"</span>,<span class="st">"booking_month"</span>])[<span class="st">"trip_id"</span>].nunique().rename(<span class="st">"active_trips"</span>).reset_index()</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>activity <span class="op">=</span> activity.merge(first_month, on<span class="op">=</span><span class="st">"student_id"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>activity[<span class="st">"months_since_cohort"</span>] <span class="op">=</span> ((activity[<span class="st">"booking_month"</span>].dt.to_period(<span class="st">"M"</span>) <span class="op">-</span> activity[<span class="st">"cohort_month"</span>].dt.to_period(<span class="st">"M"</span>)).<span class="bu">apply</span>(attrgetter(<span class="st">"n"</span>)))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cohort size</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>cohort_size <span class="op">=</span> activity.groupby(<span class="st">"cohort_month"</span>)[<span class="st">"student_id"</span>].nunique().rename(<span class="st">"cohort_size"</span>).reset_index()</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Active users per cohort-month</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>active_users <span class="op">=</span> activity.groupby([<span class="st">"cohort_month"</span>,<span class="st">"months_since_cohort"</span>])[<span class="st">"student_id"</span>].nunique().reset_index()</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>ret <span class="op">=</span> active_users.merge(cohort_size, on<span class="op">=</span><span class="st">"cohort_month"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>ret[<span class="st">"retention_rate"</span>] <span class="op">=</span> ret[<span class="st">"student_id"</span>] <span class="op">/</span> ret[<span class="st">"cohort_size"</span>]</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Pivot to retention matrix</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>ret_pivot <span class="op">=</span> ret.pivot(index<span class="op">=</span><span class="st">"cohort_month"</span>, columns<span class="op">=</span><span class="st">"months_since_cohort"</span>, values<span class="op">=</span><span class="st">"retention_rate"</span>).fillna(<span class="dv">0</span>).<span class="bu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>display(ret_pivot.head(<span class="dv">12</span>))</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">4</span>))</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>sns.heatmap(ret_pivot, annot<span class="op">=</span><span class="va">True</span>, fmt<span class="op">=</span><span class="st">".2f"</span>, cmap<span class="op">=</span><span class="st">"Blues"</span>, cbar<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Monthly Retention by Cohort (paid bookings)"</span>)</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"Months since cohort start"</span>)</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"Cohort month"</span>)</span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">months_since_cohort</th>
+<th data-quarto-table-cell-role="th">0</th>
+<th data-quarto-table-cell-role="th">1</th>
+<th data-quarto-table-cell-role="th">2</th>
+<th data-quarto-table-cell-role="th">3</th>
+<th data-quarto-table-cell-role="th">4</th>
+<th data-quarto-table-cell-role="th">5</th>
+<th data-quarto-table-cell-role="th">6</th>
+<th data-quarto-table-cell-role="th">7</th>
+<th data-quarto-table-cell-role="th">8</th>
+<th data-quarto-table-cell-role="th">9</th>
+<th data-quarto-table-cell-role="th">10</th>
+<th data-quarto-table-cell-role="th">11</th>
+<th data-quarto-table-cell-role="th">12</th>
+<th data-quarto-table-cell-role="th">13</th>
+<th data-quarto-table-cell-role="th">14</th>
+<th data-quarto-table-cell-role="th">15</th>
+<th data-quarto-table-cell-role="th">16</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">cohort_month</th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-11-01</td>
+<td>1.0</td>
+<td>0.000</td>
+<td>0.026</td>
+<td>0.035</td>
+<td>0.148</td>
+<td>0.000</td>
+<td>0.017</td>
+<td>0.078</td>
+<td>0.217</td>
+<td>0.000</td>
+<td>0.148</td>
+<td>0.165</td>
+<td>0.174</td>
+<td>0.296</td>
+<td>0.000</td>
+<td>0.017</td>
+<td>0.017</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-01</td>
+<td>1.0</td>
+<td>0.037</td>
+<td>0.039</td>
+<td>0.083</td>
+<td>0.000</td>
+<td>0.048</td>
+<td>0.074</td>
+<td>0.268</td>
+<td>0.000</td>
+<td>0.124</td>
+<td>0.140</td>
+<td>0.178</td>
+<td>0.363</td>
+<td>0.000</td>
+<td>0.008</td>
+<td>0.033</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>1.0</td>
+<td>0.034</td>
+<td>0.069</td>
+<td>0.000</td>
+<td>0.017</td>
+<td>0.121</td>
+<td>0.276</td>
+<td>0.000</td>
+<td>0.086</td>
+<td>0.190</td>
+<td>0.207</td>
+<td>0.414</td>
+<td>0.000</td>
+<td>0.017</td>
+<td>0.017</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-02-01</td>
+<td>1.0</td>
+<td>0.065</td>
+<td>0.000</td>
+<td>0.076</td>
+<td>0.076</td>
+<td>0.250</td>
+<td>0.000</td>
+<td>0.152</td>
+<td>0.120</td>
+<td>0.185</td>
+<td>0.315</td>
+<td>0.000</td>
+<td>0.022</td>
+<td>0.022</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-03-01</td>
+<td>1.0</td>
+<td>0.000</td>
+<td>0.053</td>
+<td>0.065</td>
+<td>0.231</td>
+<td>0.000</td>
+<td>0.083</td>
+<td>0.172</td>
+<td>0.154</td>
+<td>0.355</td>
+<td>0.000</td>
+<td>0.012</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-05-01</td>
+<td>1.0</td>
+<td>0.040</td>
+<td>0.307</td>
+<td>0.000</td>
+<td>0.107</td>
+<td>0.187</td>
+<td>0.200</td>
+<td>0.373</td>
+<td>0.000</td>
+<td>0.013</td>
+<td>0.067</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-06-01</td>
+<td>1.0</td>
+<td>0.099</td>
+<td>0.000</td>
+<td>0.138</td>
+<td>0.138</td>
+<td>0.204</td>
+<td>0.395</td>
+<td>0.000</td>
+<td>0.013</td>
+<td>0.013</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-07-01</td>
+<td>1.0</td>
+<td>0.000</td>
+<td>0.102</td>
+<td>0.172</td>
+<td>0.187</td>
+<td>0.351</td>
+<td>0.000</td>
+<td>0.010</td>
+<td>0.017</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-09-01</td>
+<td>1.0</td>
+<td>0.072</td>
+<td>0.192</td>
+<td>0.312</td>
+<td>0.000</td>
+<td>0.008</td>
+<td>0.016</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-10-01</td>
+<td>1.0</td>
+<td>0.194</td>
+<td>0.318</td>
+<td>0.000</td>
+<td>0.008</td>
+<td>0.031</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-11-01</td>
+<td>1.0</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.026</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-12-01</td>
+<td>1.0</td>
+<td>0.000</td>
+<td>0.010</td>
+<td>0.042</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+<td>0.000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="index_files/figure-html/cell-20-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="index_files/figure-html/cell-20-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><em>(Figure: Monthly Retention by Cohort (paid bookings))</em></p>
+<p>And when we zoom out across time, the cohort map shows how retention evolved month to month. Each blue cell is a memory of students returning — or not — as semesters passed, seasons changed, and we learned how to serve better.</p>
+<p>In the end, loyalty wasn’t luck or marketing. It was earned, one on-time trip, one answered call, one safe arrival at a time. Looking back, that — more than the profit charts — was the real proof that Traway had grown from an idea into something people trusted.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
