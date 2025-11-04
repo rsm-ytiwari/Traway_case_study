@@ -1,0 +1,19 @@
+<!-- Start in reader mode by default, then let the toggle reveal TOC -->
+<script>
+(function () {
+  function isReaderOn() {
+    return document.body.classList.contains('quarto-reader-mode');
+  }
+  function toggleReaderIfNeeded() {
+    const toggle = document.querySelector('.quarto-reader-toggle, .quarto-reader-mode-toggle');
+    if (toggle && !isReaderOn()) {
+      setTimeout(() => { toggle.click(); }, 0);
+    }
+  }
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    toggleReaderIfNeeded();
+  } else {
+    document.addEventListener('DOMContentLoaded', toggleReaderIfNeeded);
+  }
+})();
+</script>

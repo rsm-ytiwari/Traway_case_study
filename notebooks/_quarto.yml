@@ -1,0 +1,57 @@
+project:
+  type: website
+  resources:
+    - images/**
+    - assets/**
+
+website:
+  title: "Traway"
+  reader-mode: true
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    logo: images/logo.png
+    # title: Traway Analysis
+    # left:
+    #   - text: "Home"
+    #     href: index.qmd
+    # right:
+    #   - text: "About"
+    #     href: about.qmd
+  page-navigation: true
+  bread-crumbs: false
+  # page-footer:
+  #   right:
+  #     - text: "Portfolio ↗"
+  #       href: "https://your-portfolio.example"
+  #       aria-label: "Portfolio"
+
+format:
+  html:
+    # Dark-mode per Quarto docs: separate theme files for each mode
+    theme:
+      light: [default, styles-light.scss]
+      dark:  [dark,   styles-dark.scss]
+    # (Optional) respect OS/browser preference
+    # respect-user-color-scheme: true
+
+    reader-mode: true
+
+    # Floating TOC on the right
+    toc: true
+    toc-location: right
+    toc-depth: 3
+    # embed-resources: true
+
+    code-fold: true
+    code-summary: "Show code"
+
+    lightbox: true
+    fig-cap-location: bottom
+
+    link-external-newwindow: true
+    link-external-icon: true
+    # # Start in reader mode via a tiny HTML wrapper that injects JS
+    # include-after-body:
+    #   - assets/reader-init.html

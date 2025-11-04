@@ -1,0 +1,557 @@
+
+## **Background**
+
+We’re a small group of students from **NIT Srinagar** who accidentally stumbled into the world of startups while just trying to solve our own everyday problems. What began as a late-night idea to make life a little easier for students in Kashmir slowly turned into **Traway.live** — a bootstrapped travel platform that ended up moving thousands of people across one of India’s toughest regions to operate in.
+
+This report isn’t just a bunch of charts and numbers. It’s our attempt to step back and understand *why* Traway worked the way it did — what patterns shaped our growth, what mistakes taught us the most, and what data quietly told us before we even realized it.
+
+Think of it as a post-game analysis of a startup that started in a college dorm, fought weather, bureaucracy, and bad roads, and somehow managed to build something real — all while we were still figuring out adulthood.
+
+
+##### **Setting the Stage**
+
+Before any analysis, we had to get our data house in order — trips, bookings, costs, revenue, feedback, the whole puzzle.
+Nothing flashy here, just the quiet groundwork that makes everything else possible. Think of it as laying out the map before starting the journey.
+
+```{python}
+
+
+# ─────────────────────────────────────────────
+# Load data & packages
+# ─────────────────────────────────────────────
+import pandas as pd, numpy as np, matplotlib.pyplot as plt, seaborn as sns
+
+trips = pd.read_csv("../data/processed/trips.csv")
+bookings = pd.read_csv("../data/processed/bookings.csv")
+costs = pd.read_csv("../data/processed/costs.csv")
+revenue = pd.read_csv("../data/processed/revenue.csv")
+revenue_event = pd.read_csv("../data/processed/revenue_by_event.csv")
+feedback = pd.read_csv("../data/processed/feedback.csv")
+print(f"Trips: {len(trips)}, Bookings: {len(bookings)}, Costs: {len(costs)}, Revenue: {len(revenue)}, Feedback: {len(feedback)}")
+
+
+```
+
+
+
+## **1. The Big Picture**
+
+Between 2022 and 2024, Traway came into picture because
+Students needed a way out of Kashmir that was reliable, affordable, and a way that didn’t involve twelve confusing WhatsApp groups.
+
+So, we built a system. What followed were hundreds of trips, thousands of passengers, and a crash course in how messy and fascinating real operations can be.
+
+Here’s the quick snapshot of what those two years looked like — the heartbeat of Traway in numbers:
+
+```{python}
+
+# Overall KPIs
+kpis = {
+    "Total Trips": len(trips),
+    "Total Students (bookings)": bookings["student_id"].nunique(),
+    "Total realized revenue (₹)": revenue["realized_revenue"].sum().round(),
+    "Total Cost (₹)": revenue["total_cost"].sum().round(),
+    "Total Profit (₹)": revenue["profit"].sum().round(),
+    "Avg Profit Margin (%)": (revenue["profit"].sum() / revenue["realized_revenue"].sum() * 100).round(2),
+    "Avg Rating (★)": feedback["rating"].mean().round(2)
+}
+pd.DataFrame(kpis, index=["KPIs"]).T
+
+
+
+```
+
+
+Each of those numbers tells a story. The trips were the backbone, the bookings were the belief, and the profit was the quiet reward for getting both right (it will probably get less poetic now😅).
+
+
+It wasn’t smooth — no startup ever is — but by the end, we had something that actually worked: a data-backed, community-fueled travel system that proved small ideas can move big distances.
+
+
+
+
+## **2. How Each Event Performed**
+
+When we broke down profitability across different event batches, a pattern began to appear — and like most patterns, it came with surprises.
+
+Some batches, especially the **early commuter runs**, turned out to be quiet heroes — pulling in strong margins despite all the first-time chaos. Recreational trips, on the other hand, were less predictable: sometimes great, sometimes just enough to break even. And emergency evacuations? Those were never about profit; they were about showing up when no one else could.
+
+The graph below tells that story visually — each bar a snapshot of how efficiency, timing, and chaos interacted in their own weird ways:
+```{python}
+
+plt.figure(figsize=(10,5))
+sns.barplot(data=revenue_event, x="event_batch_id", y="profit_margin", hue="event_batch_id", dodge=False)
+plt.xticks(rotation=45)
+plt.title("Profit Margin by Event Batch")
+plt.ylabel("Profit Margin (%)")
+plt.xlabel("Event Batch")
+plt.legend([],[],frameon=False)
+plt.show()
+
+
+
+```
+
+*(Figure: Profit Margin by Event Batch)*
+
+What stands out isn’t just which events made the most money — it’s how consistent the system became over time. From the trial-and-error beginnings to smoother later runs, Traway slowly learned what worked, what didn’t, and how to turn experience into efficiency.
+
+
+## **3. Following the Money**
+
+When we stacked up revenue and cost across different event batches, the story was surprisingly human — some trips carried the company, others just carried students home.
+
+Commute events, especially in late 2022, were the financial backbone. High demand, predictable schedules, and full buses meant revenue comfortably outpaced cost. But when it came to emergency and recreational events, the gap narrowed.
+Emergency trips were never designed to make money — they were logistical firefighting, not business strategy. Recreation, meanwhile, was unpredictable: a sunny forecast could fill a bus, a random snowstorm could empty it.
+
+```{python}
+
+
+revenue_event[["event_batch_id","realized_revenue","total_cost"]].plot(
+    x="event_batch_id", kind="bar", figsize=(10,5), ylabel="₹"
+)
+plt.title("Revenue vs Cost by Event")
+plt.xticks(rotation=45)
+plt.show()
+
+
+```
+
+*(Figure: Revenue vs Cost by Event)*
+
+This comparison made one thing clear — profitability wasn’t random. It followed intention. Every time we planned, optimized, and priced thoughtfully, the margins held. When we reacted, they thinned.
+
+
+
+## **4. The Geography of Profit**
+
+Zooming in on routes revealed another pattern — not all kilometers are created equal.
+
+Routes like **Srinagar–Jammu** and **Srinagar–Yusmarg** turned out to be quiet overachievers, consistently delivering higher margins. They balanced strong demand with manageable costs — the sweet spot of travel economics.
+On the other end, routes like **Srinagar–Pahalgam** and **Srinagar–Airport** were trickier: shorter, more competitive, and often price-sensitive. They kept the wheels turning but not the profits soaring.
+
+```{python}
+route_perf = revenue.groupby("route", as_index=False)["profit_margin"].mean().sort_values("profit_margin", ascending=False)
+plt.figure(figsize=(8,5))
+sns.barplot(data=route_perf, y="route", x="profit_margin", palette="crest", hue="route")
+plt.title("Average Profit Margin by Route")
+plt.xlabel("Profit Margin (%)")
+plt.ylabel("")
+plt.show()
+
+
+
+
+```
+
+*(Figure: Average Profit Margin by Route)*
+
+Together, these two views — event and route — gave us a clearer map of how Traway actually worked in the wild: where the system was efficient, where it was generous, and where it was just doing what startups do best — learning on the go.
+
+
+#### A Quick Look by Trip Type
+
+```{python}
+
+
+revenue.groupby("trip_type")[["realized_revenue","total_cost","profit_margin"]].mean().round(2)
+
+
+```
+
+When we averaged things out by trip type, the numbers lined up with what our gut already knew.
+**Commute trips** were the steady earners — reliable schedules, full buses, and predictable margins around the halfway mark.
+**Recreational trips** did fine but danced more with luck than logic — good weather meant profit, bad timing meant empty seats.
+And **emergency trips**? Those were pure service. No revenue, no margins — just buses on the road when people needed them most.
+
+It’s the kind of data that quietly says what every founder learns the hard way: not every trip needs to be profitable to be worth running.
+
+
+
+## **5. Pricing and the Mystery of Empty Seats**
+
+When we plotted average fare against occupancy, we expected a neat relationship — charge more, fill less; charge less, fill more. Real life, as usual, refused to cooperate.
+
+Some trips packed every seat even at higher fares, while others struggled despite discounts. It turns out, *price* wasn’t the full story — **timing, trust, and trip type** played their parts too. Students cared less about saving ₹50 and more about whether the bus would actually leave on time and reach safely.
+
+The scatter tells that tale: clusters where planning met reliability, and outliers where the market reminded us who’s boss.
+
+```{python}
+
+# --- Compute occupancy from bookings (exclude refunded) ---
+# Seats actually used per trip_id
+occupied = (
+    bookings.loc[bookings["payment_status"].str.lower().ne("refunded")]
+    .groupby("trip_id", as_index=False)
+    .agg(filled_seats=("booking_id", "count"))
+)
+
+# Join with trips to get total_seats and compute occupancy_rate
+trip_occ = trips[["trip_id", "total_seats"]].merge(occupied, on="trip_id", how="left")
+trip_occ["filled_seats"] = trip_occ["filled_seats"].fillna(0).astype(int)
+trip_occ["occupancy_rate"] = trip_occ["filled_seats"] / trip_occ["total_seats"]
+
+# Average fare per trip (use only paid fares for AOV)
+bookings_by_trip = (
+    bookings.loc[bookings["payment_status"].str.lower().eq("paid")]
+    .groupby("trip_id", as_index=False)["fare_paid"].mean()
+    .rename(columns={"fare_paid": "avg_fare"})
+)
+
+# Merge and plot
+fare_occ = pd.merge(bookings_by_trip, trip_occ, on="trip_id", how="inner")
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+sns.scatterplot(data=fare_occ, x="occupancy_rate", y="avg_fare", alpha=0.6)
+plt.title("Average Fare vs Occupancy Rate")
+plt.xlabel("Occupancy Rate")
+plt.ylabel("Average Fare (₹)")
+plt.show()
+
+
+
+```
+
+*(Figure: Average Fare vs Occupancy Rate)*
+
+In short, pricing mattered — but **predictability sold better than cheapness**.
+
+
+## **6. The Psychology of Booking Early**
+
+We wanted to solve one of the most familiar problems in travel, empty seats!
+During Traway’s early days, we had a hunch. Whenever we warned students that fares might increase later, bookings seemed to skyrocket. When we offered discounts instead, the response was... lukewarm.
+
+We didn’t know it then, but we were bumping into something behavioral economists have written books about — loss aversion. People hate losing more than they love saving.
+
+So later, when we finally understood data and statistics well enough to test our instincts, we designed a small experiment.
+One season, we used a gain frame — “Book early and save ₹50.”
+Another season, a loss frame — “Book late and pay ₹50 extra.”
+
+Same math. Very different psychology.
+
+The numbers that followed gave us a very good idea that loss aversion motivated more students to book but that was just intuition.
+
+```{python}
+
+# --- Correct imports ---
+import numpy as np
+from statsmodels.stats.proportion import proportions_ztest
+
+# Compute prebooking shares
+exp = bookings.groupby("framing_type")["prebooking_flag"].mean().reset_index()
+exp.columns = ["framing_type","prebook_rate"]
+
+
+
+sns.barplot(data=exp, x="framing_type", y="prebook_rate", palette="Set2", hue="prebook_rate")
+plt.title("Prebooking Participation by Framing Type")
+plt.ylabel("Prebooking Share")
+plt.show()
+
+```
+
+*(Figure: Prebooking Participation by Framing Type)*
+
+The chart shows what we’d always sensed — the loss frame clearly outperformed the gain frame. Students responded more when they thought they might lose something rather than earn it.
+
+But that was still intuition. How could we be sure it wasn’t just luck?
+
+Now that we actually understand data and hypothesis testing, we went back and ran a two-proportion Z-test, with the null hypothesis that both framings performed the same.
+
+The result? p-value < 0.05 — statistically significant.
+Our gut feeling from those chaotic travel seasons had been right all along. What felt like human behavior on the ground turned out to be provable psychology in the data.
+```{python}
+
+
+# Sample sizes
+n_gain = bookings.query("framing_type == 'gain'").shape[0]
+n_loss = bookings.query("framing_type == 'loss'").shape[0]
+p_gain = exp.loc[exp["framing_type"]=="gain","prebook_rate"].values[0]
+p_loss = exp.loc[exp["framing_type"]=="loss","prebook_rate"].values[0]
+
+# Two-proportion Z-test
+count = np.array([p_gain*n_gain, p_loss*n_loss])
+nobs = np.array([n_gain, n_loss])
+z, p = proportions_ztest(count, nobs, alternative="smaller")  # smaller → gain<loss
+
+display(exp)
+print(f"Z-stat = {z:.3f}, p-value = {p:.4f}")
+
+
+
+
+```
+
+*(Table: Prebooking Rate by Framing Type)*
+The table shows it clearly — when framed as a potential loss, students booked earlier almost twice as often. It’s the classic *loss aversion* principle at work: avoiding pain beats chasing reward.
+
+
+
+
+## **7. Reliability and Refunds**
+
+### Delays: the quiet tax on trust
+
+Most trips ran only a little late; a long tail of outliers did the real damage. Small delays were normal noise. Big delays were the ones people remembered—and talked about.
+
+```{python}
+
+
+sns.histplot(trips["delay_min"], bins=30, kde=True)
+plt.title("Trip Delay Distribution")
+plt.xlabel("Delay (minutes)")
+plt.show()
+
+
+```
+
+*(Figure: Trip Delay Distribution)*
+
+### Refunds: where operations show up on the P&L
+
+Refund rates moved with reality on the ground. Events with smoother operations stayed low; the messy ones spiked. Although our refund rates were reliably low, the unusual spike was during the march commute season when the dates of examinations changed suddenly.
+
+```{python}
+
+
+sns.barplot(data=revenue_event, x="event_batch_id", y="refund_rate", color="#E67E22")
+plt.title("Refund Rate by Event")
+plt.xticks(rotation=45)
+plt.show()
+
+
+```
+
+*(Figure: Refund Rate by Event)*
+
+---
+
+## **8. Service Quality and Satisfaction**
+
+### Ratings: solid, with room at the top
+
+Most customers clustered around 4–5 stars, which means the experience was good by default. The small dip below that is where speed, clarity, or comfort slipped—and where retention quietly leaks.
+
+```{python}
+
+
+sns.histplot(feedback["rating"], bins=10, kde=True)
+plt.title("Distribution of Ratings (★)")
+plt.xlabel("Rating (1–5)")
+plt.show()
+
+
+```
+
+*(Figure: Distribution of Ratings (★))*
+
+### Delays vs ratings: the expected drag
+
+More delay, lower ratings. Not dramatic, but steady—the kind of slope that compounds across a season. Reliability doesn’t just save minutes; it buys goodwill.
+
+```{python}
+
+
+delay_ratings = pd.merge(feedback, trips[["trip_id","delay_min"]], on="trip_id")
+sns.scatterplot(data=delay_ratings, x="delay_min", y="rating", alpha=0.6)
+sns.regplot(data=delay_ratings, x="delay_min", y="rating", scatter=False, color="red")
+plt.title("Delay vs Rating (expected negative correlation)")
+plt.xlabel("Delay (min)")
+plt.ylabel("Rating (★)")
+plt.show()
+
+
+```
+
+*(Figure: Delay vs Rating (expected negative correlation))*
+
+### Snacks vs smiles: tiny pushes matter
+
+On recreational trips, a bit more spent on refreshments nudged ratings up. No silver bullet—just a gentle lift. When people feel looked after, they grade the whole trip kinder.
+
+```{python}
+
+
+rec_fb = feedback[feedback["trip_type"]=="recreational"].merge(costs[["trip_id","refreshment_cost"]], on="trip_id")
+rec_fb["per_student_refreshment"] = rec_fb["refreshment_cost"]
+sns.scatterplot(data=rec_fb, x="per_student_refreshment", y="rating", alpha=0.6)
+sns.regplot(data=rec_fb, x="per_student_refreshment", y="rating", scatter=False, color="green")
+plt.title("Refreshment Spend vs Rating (Recreational)")
+plt.xlabel("Refreshment Spend (₹ per trip)")
+plt.ylabel("Rating (★)")
+plt.show()
+
+
+```
+
+*(Figure: Refreshment Spend vs Rating (Recreational))*
+
+### Words and stars agree (thankfully)
+
+Text sentiment rose with star ratings. That alignment means we can trust the rating system—and mine comments for what to fix next.
+
+```{python}
+
+
+sns.scatterplot(data=feedback, x="rating", y="sentiment_score", alpha=0.6)
+plt.title("Sentiment vs Rating (alignment check)")
+plt.show()
+
+
+```
+
+*(Figure: Sentiment vs Rating (alignment check))*
+
+**our takeaway:** reliability prevents refunds, small gestures polish the experience, and both show up—predictably—in how people rate you.
+
+
+
+
+## **9. Loyalty, Retention, and the People Who Kept Coming Back**
+
+At some point, the story of a startup stops being about growth and starts being about *trust*.
+For Traway, that moment came when we realized most of our customers weren’t new — they were coming back.
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from operator import attrgetter
+
+
+if "trip_count" in bookings.columns:
+    student_trips = bookings.groupby("student_id")["trip_id"].nunique()
+    repeaters = (student_trips > 1).sum()
+    total = student_trips.shape[0]
+    print(f"Repeat travelers: {repeaters} ({repeaters/total*100:.1f}%) of total")
+
+
+b = bookings.copy()
+b["payment_status"] = b["payment_status"].str.lower().str.strip()
+
+# Count only paid bookings for loyalty (cash basis)
+b_paid = b[b["payment_status"].eq("paid")].copy()
+
+# Ensure datetime
+b_paid["booking_datetime"] = pd.to_datetime(b_paid["booking_datetime"], errors="coerce")
+b_paid["booking_month"] = b_paid["booking_datetime"].dt.to_period("M").dt.to_timestamp()
+
+# Trip count per student (paid only)
+trip_count = (
+    b_paid.groupby("student_id")["trip_id"].nunique()
+    .rename("trip_count")
+    .reset_index()
+)
+trip_count_summary = trip_count["trip_count"].describe()
+repeaters = (trip_count["trip_count"] > 1).sum()
+unique_students = trip_count.shape[0]
+repeat_rate = repeaters / max(1, unique_students)
+
+display(pd.DataFrame({
+    "Unique paying students": [unique_students],
+    "Repeat travelers": [repeaters],
+    "Repeat rate (%)": [round(100*repeat_rate, 1)],
+    "Median trips per student": [int(trip_count["trip_count"].median())],
+    "95th pct trips per student": [int(trip_count["trip_count"].quantile(0.95))]
+}).T.rename(columns={0:"Value"}))
+
+
+
+
+```
+
+
+*(Table: Key Loyalty Metrics)*
+
+About two-thirds of all paying students weren’t first-timers. They came back. Some more than twice. The median student took two trips, but a small group went far beyond that — the ones who didn’t just use Traway, but believed in it.
+
+```{python}
+
+# Histogram of trips per student
+plt.figure(figsize=(6,4))
+sns.histplot(trip_count["trip_count"], bins=np.arange(1, trip_count["trip_count"].max()+2)-0.5)
+plt.title("Trips per Student (paid only)")
+plt.xlabel("Distinct trips")
+plt.ylabel("Students")
+plt.show()
+
+
+
+
+```
+
+
+*(Figure: Trips per Student (paid only))*
+The distribution tells a quiet truth: while most students rode once or twice, a strong core of repeat travelers carried a big chunk of business. Those familiar faces weren’t just passengers — they were proof that Traway had become part of their routine.
+
+
+```{python}
+
+# Revenue per student (paid only) and Pareto view
+rev_per_student = b_paid.groupby("student_id")["fare_paid"].sum().rename("revenue").reset_index()
+rev_per_student = rev_per_student.sort_values("revenue", ascending=False).reset_index(drop=True)
+rev_per_student["cum_share_students"] = (np.arange(len(rev_per_student))+1)/len(rev_per_student)
+rev_per_student["cum_share_revenue"] = rev_per_student["revenue"].cumsum()/rev_per_student["revenue"].sum()
+
+plt.figure(figsize=(6,4))
+plt.plot(rev_per_student["cum_share_students"], rev_per_student["cum_share_revenue"], marker=".")
+plt.title("Pareto Curve: Cumulative Students vs Cumulative Revenue")
+plt.xlabel("Cumulative share of students")
+plt.ylabel("Cumulative share of revenue")
+plt.grid(True, alpha=0.3)
+plt.show()
+
+
+
+
+```
+
+
+*(Figure: Pareto Curve — Cumulative Students vs Cumulative Revenue)*
+
+The Pareto curve confirms it visually. A relatively small share of students contributed to a large share of total revenue — the “veterans” who trusted us trip after trip. That’s loyalty in its rawest, most measurable form.
+A small group of repeat travelers carried a large share of total revenue. They became the heartbeat of our operations — the people who made the late nights, data cleaning, and chaos worth it.
+
+```{python}
+
+
+
+# ── Monthly cohort retention (simple, usage-based)
+# Cohort = first month the student purchased; Active = months the student purchased
+first_month = b_paid.groupby("student_id")["booking_month"].min().rename("cohort_month")
+activity = b_paid.groupby(["student_id","booking_month"])["trip_id"].nunique().rename("active_trips").reset_index()
+activity = activity.merge(first_month, on="student_id", how="left")
+activity["months_since_cohort"] = ((activity["booking_month"].dt.to_period("M") - activity["cohort_month"].dt.to_period("M")).apply(attrgetter("n")))
+
+# Cohort size
+cohort_size = activity.groupby("cohort_month")["student_id"].nunique().rename("cohort_size").reset_index()
+
+# Active users per cohort-month
+active_users = activity.groupby(["cohort_month","months_since_cohort"])["student_id"].nunique().reset_index()
+ret = active_users.merge(cohort_size, on="cohort_month", how="left")
+ret["retention_rate"] = ret["student_id"] / ret["cohort_size"]
+
+# Pivot to retention matrix
+ret_pivot = ret.pivot(index="cohort_month", columns="months_since_cohort", values="retention_rate").fillna(0).round(3)
+display(ret_pivot.head(12))
+
+plt.figure(figsize=(10,4))
+sns.heatmap(ret_pivot, annot=True, fmt=".2f", cmap="Blues", cbar=True)
+plt.title("Monthly Retention by Cohort (paid bookings)")
+plt.xlabel("Months since cohort start")
+plt.ylabel("Cohort month")
+plt.tight_layout()
+plt.show()
+
+
+```
+
+*(Figure: Monthly Retention by Cohort (paid bookings))*
+
+And when we zoom out across time, the cohort map shows how retention evolved month to month. Each blue cell is a memory of students returning — or not — as semesters passed, seasons changed, and we learned how to serve better.
+
+In the end, loyalty wasn’t luck or marketing. It was earned, one on-time trip, one answered call, one safe arrival at a time. Looking back, that — more than the profit charts — was the real proof that Traway had grown from an idea into something people trusted.
