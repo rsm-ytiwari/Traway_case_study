@@ -1,4 +1,4 @@
-case study- [ https://rsm-ytiwari.github.io/Traway_case_study/ ]
+case study- [ https://traway.live/ ]
 
 # **Traway.live**
 
